@@ -1,0 +1,30 @@
+<form #form="ngForm">
+  <table>
+    <tr>
+      <th>Name:</th>
+      <th>Gender:</th>
+      <th>Blood Group</th>
+    </tr>
+    <tr>
+      <td><input type="text"[(ngModel)]="emp.name" name="name" required></td>
+      <td><select [(ngModel)]="emp.gender" name="gender" required>
+            <option>Male</option>
+            <option>Female</option>
+            </select>
+      </td>
+      <td><select [(ngModel)]="emp.bloodgrp" name="bloodgrp" required>
+            <option>A+</option>
+            <option>B+</option>
+            <option>AB+</option>
+            <option>O+</option>
+            <option>A-</option>
+            <option>B-</option>
+            <option>AB-</option>
+            <option>O-</option>
+          </select>
+      </td>
+    </tr>
+    <tr><button [disabled]="!form.form.valid" (click)="addEmployee()" >ADD EMPLOYEE</button></tr>
+  </table>
+</form>
+

@@ -1,0 +1,40 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Blood Group</th>
+  </tr>
+  <tr *ngFor="let emp of employees ; let i=index" >
+    <td >{{emp.id}}</td>
+    
+    <td *ngIf="i!=index">{{emp.name}}</td>
+    <td *ngIf="i==index"><input [(ngModel)]="emp.name"></td>
+    <td *ngIf="i!=index">{{emp.gender}}</td>
+    <td *ngIf="i==index"><select [(ngModel)]="emp.gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                      </select></td>
+    <td *ngIf="i!=index">{{emp.bloodgrp}}</td>
+    <td *ngIf="i==index"><select [(ngModel)]="emp.bloodgrp">
+                        <option>A+</option>
+                        <option>B+</option>
+                        <option>AB+</option>
+                        <option>O+</option>
+                        <option>A-</option>
+                        <option>B-</option>
+                        <option>AB-</option>
+                        <option>O-</option>
+                      </select></td>
+    <td *ngIf="i!=index"><button (click)="index=i">EDIT</button></td>
+    <td *ngIf="i==index"><button (click)="index=null">SAVE</button></td>
+    
+    <td><button (click)="deleteEmp(i)">DELETE</button></td>
+  </tr>
+</table>
+<a  href="/home"><button>Home</button></a>
+<!-- <div>
+  <label>Input:</label><input #input (keyup)="0"><br>
+  <label>Output:</label><span>{{input.value}}</span>
+</div> -->
+
